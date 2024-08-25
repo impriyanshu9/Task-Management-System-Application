@@ -1,0 +1,32 @@
+.menu-panel.mat-mdc-menu-panel {
+  background-color: $onyx;
+  border-radius: $border-radius-default;
+
+  .mat-mdc-menu-content {
+    padding-inline: 5px;
+
+    .mat-mdc-menu-item {
+      min-height: 35px;
+      padding-inline: 10px;
+      border-radius: $border-radius-default;
+
+      .mat-icon {
+        margin-right: 10px;
+      }
+
+      .mat-mdc-menu-item-text {
+        font-size: $font-size-sm;
+      }
+    }
+
+    .mat-mdc-menu-item:not([disabled]):hover {
+      background-color: rgba($black, 0.1);
+    }
+
+    .mat-mdc-menu-item:not([disabled]).cdk-program-focused,
+    .mat-mdc-menu-item:not([disabled]).cdk-keyboard-focused,
+    .mat-mdc-menu-item:not([disabled]).mat-mdc-menu-item-highlighted {
+      background-color: rgba($black, 0.1);
+    }
+  }
+}

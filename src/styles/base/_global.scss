@@ -1,0 +1,70 @@
+:root {
+  // Colors
+  --black: #{$black};
+  --rich-black: #{$rich-black};
+  --gunmetal: #{$gunmetal};
+  --raisin-black: #{$raisin-black};
+  --onyx: #{$onyx};
+  --russian-violet: #{$russian-violet};
+  --light-violet: #{$light-violet};
+  --green: #{$green};
+  --yellow: #{$yellow};
+  --red: #{$red};
+  --white: #{$white};
+  --green-triplet: #{$green-triplet};
+  --yellow-triplet: #{$yellow-triplet};
+  --red-triplet: #{$red-triplet};
+
+  // Fonts
+  --font-size-2xs: #{$font-size-2xs};
+  --font-size-xs: #{$font-size-xs};
+  --font-size-sm: #{$font-size-sm};
+  --font-size-base: #{$font-size-base};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  --font-size-2xl: #{$font-size-2xl};
+  --font-size-3xl: #{$font-size-3xl};
+  --font-size-4xl: #{$font-size-4xl};
+
+  // Line Heights
+  --line-height-base: #{$line-height-base};
+  --line-height-lg: #{$line-height-lg};
+
+  // Font Families
+  --font-family: #{$font-family};
+  --font-family-alt: #{$font-family-alt};
+
+  // Font Weights
+  --font-weight-regular: #{$font-weight-regular};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+
+  // Border Radiuses
+  --border-radius-default: #{$border-radius-default};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+
+  //Breakpoints
+  --breakpoint-xs: #{$breakpoint-xs};
+  --breakpoint-sm: #{$breakpoint-sm};
+  --breakpoint-md: #{$breakpoint-md};
+  --breakpoint-lg: #{$breakpoint-lg};
+  --breakpoint-xl: #{$breakpoint-xl};
+}
+
+:root {
+  color-scheme: dark;
+}
+
+.active-dropzone * {
+  pointer-events: none;
+}
+
+.task .task-header .mat-mdc-card-header-text {
+  display: flex;
+  min-width: 0;
+}
+
+.overflow {
+  overflow: auto;
+}

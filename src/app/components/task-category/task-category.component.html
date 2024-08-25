@@ -1,0 +1,18 @@
+<div class="category">
+  <div class="category-header">
+    <h3 class="category-title">{{ title() }}</h3>
+    @switch(category()){ @case (TaskStatus.ToDo) {
+    <mat-icon class="todo" svgIcon="to-do"></mat-icon>
+    } @case (TaskStatus.InProgress) {
+    <mat-icon class="in-progress" svgIcon="in-progress"></mat-icon>
+    } @case (TaskStatus.Completed) {
+    <mat-icon class="completed" svgIcon="check-circle"></mat-icon>
+    } }
+    <span class="task-count">{{ tasks().length }}</span>
+  </div>
+  <div tmbDragDropzone [dropCallback]="dropCallback" class="category-content">
+    @for (task of tasks(); track task.id) {
+    <tmb-task-card [task]="task"></tmb-task-card>
+    }
+  </div>
+</div>

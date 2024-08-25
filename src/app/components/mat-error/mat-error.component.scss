@@ -1,0 +1,9 @@
+:host,
+span {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+span:not(:last-of-type)::after {
+  content: " ";
+}

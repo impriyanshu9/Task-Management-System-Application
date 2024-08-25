@@ -1,0 +1,40 @@
+button.mdc-button {
+  color: $white;
+  border-radius: $border-radius-default;
+  padding-inline: 8px;
+
+  @media screen and (min-width: $breakpoint-xs) {
+    padding-inline: 16px;
+  }
+
+  .mdc-button__label {
+    color: $white;
+    font-size: $font-size-sm;
+
+    @media screen and (min-width: $breakpoint-xs) {
+      font-size: $font-size-base;
+    }
+  }
+
+  &:not(.mdc-button--raised) {
+    border: 2px solid $russian-violet;
+  }
+
+  .mat-mdc-button-persistent-ripple::before {
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover .mat-mdc-button-persistent-ripple::before {
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &.mat-mdc-button .mat-mdc-button-persistent-ripple::before {
+    background-color: $russian-violet;
+  }
+
+  &.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before {
+    opacity: 0.1;
+    background-color: $russian-violet;
+    transition: opacity 0.2s ease-in-out;
+  }
+}

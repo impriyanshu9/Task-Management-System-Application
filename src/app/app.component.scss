@@ -1,0 +1,45 @@
+@import "../styles/abstracts/variables";
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  text-align: center;
+
+  .title {
+    margin: 0;
+    font-size: $font-size-lg;
+
+    @media screen and (min-width: $breakpoint-xs) {
+      font-size: $font-size-3xl;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  padding-block: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: $breakpoint-xs;
+  padding-inline: 20px;
+
+  @media screen and (min-width: $breakpoint-sm) {
+    max-width: $breakpoint-md;
+  }
+
+  .load-tasks-button,
+  .clear-tasks-button {
+    align-self: center;
+  }
+}

@@ -1,0 +1,67 @@
+@import "../../../styles/abstracts/variables";
+
+$icon-size: 24px;
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: $gunmetal;
+  padding: 10px;
+  border-radius: $border-radius-default;
+  border: 2px solid $onyx;
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .filters {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+
+      @media screen and (min-width: $breakpoint-sm) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .prio-filter {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        button {
+          position: absolute;
+          right: calc(-10px - $icon-size);
+        }
+      }
+    }
+
+    .task-add {
+      margin-left: auto;
+    }
+
+    .mdc-icon-button {
+      width: $icon-size;
+      height: $icon-size;
+      padding: 0;
+    }
+  }
+
+  &-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media screen and (min-width: $breakpoint-sm) {
+      flex-direction: row;
+
+      & > * {
+        flex: 1;
+        width: 30%;
+      }
+    }
+  }
+}

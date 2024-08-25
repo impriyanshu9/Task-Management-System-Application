@@ -1,0 +1,52 @@
+// Fonts
+$font-family: "Montserrat";
+$font-family-alt: sans-serif;
+
+// Font Sizing
+$font-size-html: 62.5%;
+$font-size-2xs: 1rem;
+$font-size-xs: 1.2rem;
+$font-size-sm: 1.4rem;
+$font-size-base: 1.6rem;
+$font-size-lg: 2rem;
+$font-size-xl: 2.4rem;
+$font-size-2xl: 3rem;
+$font-size-3xl: 3.6rem;
+$font-size-4xl: 4.2rem;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-base: 1.2;
+$line-height-lg: 1.6;
+
+// Colors
+$black: #000000;
+$rich-black: #121420ff;
+$gunmetal: #1b2432ff;
+$raisin-black: #2c2b3cff;
+$onyx: #403f4cff;
+$russian-violet: #3a015cff;
+$light-violet: #9903f3ff;
+$green: #008000ff;
+$yellow: #f5e617ff;
+$red: #f50000;
+$white: #ffffffff;
+$green-triplet: 0, 128, 0;
+$yellow-triplet: 245, 230, 23;
+$red-triplet: 245, 0, 0;
+
+// Border Radiuses
+$border-radius-default: 6px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1400px;

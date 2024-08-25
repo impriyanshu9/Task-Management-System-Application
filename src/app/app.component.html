@@ -1,0 +1,24 @@
+<header class="header">
+  <h1 class="title">Task Management Board</h1>
+</header>
+<main>
+  <div class="container">
+    <button
+      class="load-tasks-button"
+      mat-raised-button
+      color="accent"
+      (click)="addMockTasks()"
+    >
+      Load Mock Tasks
+    </button>
+    <button
+      class="clear-tasks-button"
+      mat-raised-button
+      color="accent"
+      (click)="clearTasks()"
+    >
+      Clear Tasks
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</main>
