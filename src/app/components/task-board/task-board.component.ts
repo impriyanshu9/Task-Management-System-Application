@@ -64,14 +64,12 @@ export class TaskBoardComponent {
   prioritiesFilterControl = new FormControl<number[]>([1, 2, 3], {
     nonNullable: true,
   });
+  sortControl = new FormControl<'asc' | 'desc'>('asc'); 
 
   titleFilter = this.utils.toSignalFromControl(this.titleFilterControl);
-
   assigneeFilter = this.utils.toSignalFromControl(this.assigneeFilterControl);
-
-  prioritiesFilter = this.utils.toSignalFromControl(
-    this.prioritiesFilterControl
-  );
+  prioritiesFilter = this.utils.toSignalFromControl(this.prioritiesFilterControl);
+  sortOrder = this.utils.toSignalFromControl(this.sortControl);
 
   tasks = toSignal(
     this.storage.getItemObservable('tasks').pipe(
@@ -84,9 +82,7 @@ export class TaskBoardComponent {
   filteredTasks = computed(this.computeFilteredTasks.bind(this));
 
   titleFilterActive = computed(() => !!this.titleFilter().length);
-
   assigneeFilterActive = computed(() => !!this.assigneeFilter().length);
-
   prioritiesFilterActive = computed(() => this.prioritiesFilter().length < 3);
 
   toDoTasks = computed(() =>
@@ -107,7 +103,7 @@ export class TaskBoardComponent {
     private utils: UtilsService,
     private dialog: MatDialog
   ) {
-    this.utils.initSvgIcons(['add', 'close', 'reset']);
+    this.utils.initSvgIcons(['add', 'close', 'reset', 'sort']);
   }
 
   clearFilters(
@@ -126,6 +122,25 @@ export class TaskBoardComponent {
       data: { isEdit: false },
       disableClose: true,
     });
+  }
+
+  sortTasks() {
+    const sortOrder = this.sortControl.value;
+    const tasks = this.tasks();
+
+    console.log('Before Sorting:', tasks);
+
+    tasks.sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.priority - b.priority; 
+      } else {
+        return b.priority - a.priority; 
+      }
+    });
+
+    console.log('After Sorting:', tasks);
+
+    this.storage.setItem('tasks', tasks);
   }
 
   private computeFilteredTasks() {

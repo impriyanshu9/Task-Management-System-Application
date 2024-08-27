@@ -4,8 +4,8 @@
       <mat-form-field class="input-field-standalone padding-r-s">
         <mat-label title="Filter by title">Filter by title</mat-label>
         <input matInput type="text" [formControl]="titleFilterControl" />
-        @if (titleFilterActive()) {
         <button
+          *ngIf="titleFilterActive()"
           mat-icon-button
           matTooltip="Clear title filter"
           matTooltipClass="tmb-tooltip"
@@ -13,13 +13,12 @@
         >
           <mat-icon svgIcon="close"></mat-icon>
         </button>
-        }
       </mat-form-field>
       <mat-form-field class="input-field-standalone padding-r-s">
         <mat-label title="Filter by assignee">Filter by assignee</mat-label>
         <input matInput type="text" [formControl]="assigneeFilterControl" />
-        @if (assigneeFilterActive()) {
         <button
+          *ngIf="assigneeFilterActive()"
           mat-icon-button
           matTooltip="Clear assignee filter"
           matTooltipClass="tmb-tooltip"
@@ -27,26 +26,21 @@
         >
           <mat-icon svgIcon="close"></mat-icon>
         </button>
-        }
       </mat-form-field>
 
-      <div class="prio-filter">
-        <mat-form-field class="select-field-standalone">
-          <mat-label title="Filter by priority">Filter by priority</mat-label>
-          <mat-select
-            panelClass="select-panel"
-            multiple
-            [formControl]="prioritiesFilterControl"
-          >
-            @for (priority of taskPriorities; track priority) {
-            <mat-option [value]="priority">
-              {{ priorityLabels[priority - 1] }}
-            </mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-        @if (prioritiesFilterActive()) {
+      <mat-form-field class="select-field-standalone">
+        <mat-label title="Filter by priority">Filter by priority</mat-label>
+        <mat-select
+          panelClass="select-panel"
+          multiple
+          [formControl]="prioritiesFilterControl"
+        >
+          <mat-option *ngFor="let priority of taskPriorities" [value]="priority">
+            {{ priorityLabels[priority - 1] }}
+          </mat-option>
+        </mat-select>
         <button
+          *ngIf="prioritiesFilterActive()"
           mat-icon-button
           matTooltip="Clear priority filter"
           matTooltipClass="tmb-tooltip"
@@ -54,18 +48,39 @@
         >
           <mat-icon svgIcon="reset"></mat-icon>
         </button>
-        }
-      </div>
+      </mat-form-field>
+
+      <!-- Sorting Button -->
+      <mat-form-field class="input-field-standalone padding-r-s">
+        <mat-label title="Sort tasks by priority">Sort tasks by priority</mat-label>
+        <mat-select
+          panelClass="select-panel"
+          [formControl]="sortControl"
+        >
+          <mat-option [value]="'asc'">Ascending</mat-option>
+          <mat-option [value]="'desc'">Descending</mat-option>
+        </mat-select>
+        <button
+          mat-icon-button
+          matTooltip="Sort tasks by priority"
+          matTooltipClass="tmb-tooltip"
+          (click)="sortTasks()"
+        >
+          <mat-icon svgIcon="sort"></mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- Add Task Button -->
+      <button
+        class="task-add"
+        mat-icon-button
+        matTooltip="Create new task"
+        matTooltipClass="tmb-tooltip"
+        (click)="addTask()"
+      >
+        <mat-icon svgIcon="add"></mat-icon>
+      </button>
     </div>
-    <button
-      class="task-add"
-      mat-icon-button
-      matTooltip="Create new task"
-      matTooltipClass="tmb-tooltip"
-      (click)="addTask()"
-    >
-      <mat-icon svgIcon="add"></mat-icon>
-    </button>
   </div>
   <div class="board-categories">
     <tmb-task-category
